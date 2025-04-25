@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "1b7e24f0b08245755dcf1e3744af4fdd"
+name = "test-remix-app-mk"
+handle = "test-remix-app-mk"
+application_url = "https://trustees-encourage-passive-instructors.trycloudflare.com"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://trustees-encourage-passive-instructors.trycloudflare.com/auth/callback",
+  "https://trustees-encourage-passive-instructors.trycloudflare.com/auth/shopify/callback",
+  "https://trustees-encourage-passive-instructors.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
